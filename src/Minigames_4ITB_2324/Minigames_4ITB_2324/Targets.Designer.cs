@@ -32,11 +32,13 @@
             // 
             // Targets
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.MenuHighlight;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Targets";
-            Size = new Size(800, 800);
+            Size = new Size(560, 480);
+            Load += Targets_Load;
             ResumeLayout(false);
         }
 

@@ -9,7 +9,8 @@ namespace Minigames_4ITB_2324
         List<Type> minigames = new List<Type>() { 
             typeof(Targets),
             typeof(Circle),
-            typeof(pismeno)
+            typeof(pismeno),
+            typeof(Sinusoid)
         };
 
         public Form1()
@@ -51,8 +52,8 @@ namespace Minigames_4ITB_2324
             if(isPlayersTurn)
             {
                 // Circle, Targets
-                //IMinigame m = GetRandomMinigame();
-                IMinigame m = Activator.CreateInstance(minigames[2]) as IMinigame;
+                IMinigame m = GetRandomMinigame();
+                //IMinigame m = Activator.CreateInstance(minigames[3]) as IMinigame;
 
 
                 panel1.Controls.Add(m as Control);

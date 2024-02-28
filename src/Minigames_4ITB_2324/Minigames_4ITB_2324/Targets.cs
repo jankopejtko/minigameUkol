@@ -32,7 +32,7 @@ namespace Minigames_4ITB_2324
             Score = 0;
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 16;
-            
+
             this.MouseDown += OnMouseDown;
             this.Paint += OnPaint;
             timer.Tick += OnTick;
@@ -44,7 +44,8 @@ namespace Minigames_4ITB_2324
         private void GenerateTarget()
         {
             Random r = new Random();
-            currentTarget = new Target() {
+            currentTarget = new Target()
+            {
                 posX = r.Next(0, Width),
                 posY = r.Next(0, Height),
                 brush = new SolidBrush(Color.Red),
@@ -55,7 +56,8 @@ namespace Minigames_4ITB_2324
         private void OnTick(object? sender, EventArgs e)
         {
             currentTarget.size -= speed;
-            if(currentTarget.size <= 0) {
+            if (currentTarget.size <= 0)
+            {
                 timer.Stop();
                 MinigameEnded?.Invoke(Score);
             }
@@ -69,17 +71,18 @@ namespace Minigames_4ITB_2324
 
         private void OnMouseDown(object? sender, MouseEventArgs e)
         {
-            if(currentTarget.IsMouseOver(e.Location))
+            if (currentTarget.IsMouseOver(e.Location))
             {
                 Score++;
-                if(Score == 10)
+                if (Score == 10)
                 {
                     timer.Stop();
                     MinigameEnded?.Invoke(Score);
                 }
                 speed *= speedMult;
                 GenerateTarget();
-            } else
+            }
+            else
             {
                 timer.Stop();
                 MinigameEnded?.Invoke(Score);
@@ -93,7 +96,8 @@ namespace Minigames_4ITB_2324
             public float size;
             public Brush brush;
 
-            public void Draw(Graphics g) {
+            public void Draw(Graphics g)
+            {
                 g.FillEllipse(brush, posX - size / 2, posY - size / 2, size, size);
             }
 
@@ -103,6 +107,11 @@ namespace Minigames_4ITB_2324
 
                 return dist < size / 2;
             }
+        }
+
+        private void Targets_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

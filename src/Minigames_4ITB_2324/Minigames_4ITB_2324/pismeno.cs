@@ -41,15 +41,20 @@ namespace Minigames_4ITB_2324
         }
         private void pismeno_Load(object sender, EventArgs e)
         {
-
+            this.Focus();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.Value = progressBar1.Value - 1;
-            if (progressBar1.Value <= 0)
+            if(progressBar1.Value >= 1) 
             {
-                MessageBox.Show("end game");
+                progressBar1.Value = progressBar1.Value - 1;
+            }
+            if (progressBar1.Value <= 10)
+            {
+                timer1.Stop();
+                timer1.Enabled = false;
+                MinigameEnded?.Invoke(Score);
             }
         }
 
@@ -57,11 +62,10 @@ namespace Minigames_4ITB_2324
         {
             if(e.KeyCode.ToString().ToLower() == curLetter.ToLower()) 
             {
-                MessageBox.Show("jooooo");
                 getRandomPismeno();
                 Score++;
                 progressBar1.Value = 100;
-                if(timer1.Interval >= 10)
+                if(!(timer1.Interval < 10))
                 {
                     timer1.Interval = timer1.Interval - 5;
                 }
