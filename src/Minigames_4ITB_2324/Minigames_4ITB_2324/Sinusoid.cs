@@ -47,7 +47,7 @@ namespace Minigames_4ITB_2324
         private void generateEnemy()
         {
             amplitude_enemy = rn.Next(10, 95);
-            frequency_enemy = (float)rn.Next(10, 45) / 100;
+            frequency_enemy = (float)rn.Next(10, 40) / 100;
             //MessageBox.Show("game stats: amplitude: " + amplitude + " frequency: " + frequency + " amplitude_enemy: " + amplitude_enemy + " frequency_enemy: " + frequency_enemy);
         }
         public void Draw(Graphics g, Color color, float amplitude, float frequency)
